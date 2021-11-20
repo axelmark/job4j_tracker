@@ -2,7 +2,9 @@ package ru.job4j.tracker.oop;
 
 public class Fox {
 
+    Ball ball = new Ball();
+
     public void tryEat(Ball ball) {
-        Ball.tryRun(false);
+        ball.tryRun(true);
     }
 }
