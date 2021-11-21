@@ -1,0 +1,33 @@
+package ru.job4j.tracker.oop;
+
+import static org.hamcrest.Matchers.closeTo;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
+public class TriangleTest {
+
+    @Test
+    public void semiPerimeter() {
+        double rsl = Triangle.semiPerimeter(2.0, 3.0, 1.0);
+        assertThat(rsl, is(3.0));
+    }
+
+    @Test
+    public void exist() {
+        boolean rsl = Triangle.exist(2, 3, 5);
+        assertTrue(rsl);
+    }
+
+    @Test
+    public void area() {
+        Point a = new Point(0, 0);
+        Point b = new Point(4, 0);
+        Point c = new Point(0, 4);
+        Triangle triangle = new Triangle(a, b, c);
+        double rsl = triangle.area();
+        assertThat(rsl, closeTo(8, 0.001));
+    }
+}
