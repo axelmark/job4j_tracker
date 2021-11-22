@@ -17,7 +17,7 @@ public class TriangleTest {
 
     @Test
     public void exist() {
-        boolean rsl = Triangle.exist(2, 3, 5);
+        boolean rsl = Triangle.exist(2, 2, 1);
         assertTrue(rsl);
     }
 
@@ -29,5 +29,15 @@ public class TriangleTest {
         Triangle triangle = new Triangle(a, b, c);
         double rsl = triangle.area();
         assertThat(rsl, closeTo(8, 0.001));
+    }
+
+    @Test
+    public void areaNot() {
+        Point a = new Point(2, 0);
+        Point b = new Point(2, 0);
+        Point c = new Point(2, 4);
+        Triangle triangle = new Triangle(a, b, c);
+        double rsl = triangle.area();
+        assertThat(rsl, is(-1.0));
     }
 }
