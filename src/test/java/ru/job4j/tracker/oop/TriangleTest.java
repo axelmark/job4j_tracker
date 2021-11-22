@@ -1,9 +1,8 @@
 package ru.job4j.tracker.oop;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.closeTo;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -18,7 +17,7 @@ public class TriangleTest {
     @Test
     public void exist() {
         boolean rsl = Triangle.exist(2, 2, 1);
-        assertTrue(rsl);
+        assertThat(rsl, is(true));
     }
 
     @Test
