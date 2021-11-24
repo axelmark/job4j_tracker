@@ -12,20 +12,11 @@ public class Library {
         library[1] = arrays;
         library[2] = methods;
         library[3] = cleanBook;
-        for (Book value : library) {
-            System.out.println(value.getName() + " - " + value.getCount());
-        }
+        Book.print(library);
         Book temp = library[0];
         library[0] = library[3];
         library[3] = temp;
-        for (Book book : library) {
-            System.out.println(book.getName() + " - " + book.getCount());
-
-        }
-        for (int i = 0; i < library.length; i++) {
-            if (library[i].getName().equals("Clean code")) {
-                System.out.println(library[i].getName() + " - " + library[i].getCount());
-            }
-        }
+        Book.print(library);
+        Book.print(library, "Clean code");
     }
 }
