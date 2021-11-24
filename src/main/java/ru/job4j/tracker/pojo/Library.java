@@ -23,7 +23,7 @@ public class Library {
 
         }
         for (int i = 0; i < library.length; i++) {
-            if (library[i].getName() == "Clean code") {
+            if (library[i].getName().equals("Clean code")) {
                 System.out.println(library[i].getName() + " - " + library[i].getCount());
             }
         }
