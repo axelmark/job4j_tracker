@@ -2,6 +2,20 @@ package ru.job4j.tracker.pojo;
 
 public class Library {
 
+    public static void print(Book[] books) {
+        for (Book book : books) {
+            System.out.println(book.getName() + " - " + book.getCount());
+        }
+    }
+
+    public static void print(Book[] books, String find) {
+        for (Book book : books) {
+            if ("Clean code".equals(book.getName())) {
+                System.out.println(book.getName() + " - " + book.getCount());
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Book java = new Book("Java", 8);
         Book arrays = new Book("Arrays", 10);
@@ -12,11 +26,11 @@ public class Library {
         library[1] = arrays;
         library[2] = methods;
         library[3] = cleanBook;
-        Book.print(library);
+        Library.print(library);
         Book temp = library[0];
         library[0] = library[3];
         library[3] = temp;
-        Book.print(library);
-        Book.print(library, "Clean code");
+        Library.print(library);
+        Library.print(library, "Clean code");
     }
 }

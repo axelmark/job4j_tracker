@@ -25,18 +25,4 @@ public class Book {
     public void setCount(int count) {
         this.count = count;
     }
-
-    public static void print(Book[] books) {
-        for (int i = 0; i < books.length; i++) {
-            System.out.println(books[i].getName() + " - " + books[i].getCount());
-        }
-    }
-
-    public static void print(Book[] books, String find) {
-        for (int i = 0; i < books.length; i++) {
-            if (books[i].getName().equals("Clean code")) {
-                System.out.println(books[i].getName() + " - " + books[i].getCount());
-            }
-        }
-    }
 }
