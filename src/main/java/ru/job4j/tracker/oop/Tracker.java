@@ -32,14 +32,32 @@ public class Tracker {
     }
 
     public Item findById(int id) {
-        Item rsl = null;
-        for (int index = 0; index < size; index++) {
-            Item item = items[index];
+        for (Item item : items) {
             if (item.getId() == id) {
-                rsl = item;
+                return item;
+            }
+        }
+        return null;
+    }
+
+    private int indexOf(int id) {
+        int rsl = -1;
+        for (Item item : items) {
+            if (id == item.getId()) {
+                rsl = id;
                 break;
             }
         }
         return rsl;
+    }
+
+    public boolean replace(int id, Item item) {
+        int index = indexOf(id);
+        if (index != -1) {
+            items[index] = item;
+            System.out.println(items[index]);
+            return true;
+        }
+        return false;
     }
 }
