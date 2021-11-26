@@ -69,4 +69,14 @@ public class TrackerTest {
         assertThat(rsl, is(true));
     }
 
+    @Test
+    public void whenDelete() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item();
+        bug.setName("Bug");
+        tracker.add(bug);
+        int id = bug.getId();
+        boolean rsl = tracker.delete(id);
+        assertThat(rsl, is(true));
+    }
 }
