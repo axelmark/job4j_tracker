@@ -16,9 +16,6 @@ public class Matches {
             turn = !turn;
             count -= matches;
             System.out.printf("осталось %d шт. ", count);
-            if (count <= 0) {
-                break;
-            }
         }
         if (!turn) {
             System.out.println("Выиграл первый игрок");
