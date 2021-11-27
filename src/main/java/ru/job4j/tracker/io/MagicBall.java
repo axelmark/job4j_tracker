@@ -4,7 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class MagicBall {
-
     public static void main(String[] args) {
         System.out.println("Я великий оракул. Что ты хочешь узнать?");
         Scanner input = new Scanner(System.in);
