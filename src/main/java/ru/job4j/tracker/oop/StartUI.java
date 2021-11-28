@@ -7,6 +7,7 @@ public class StartUI {
     public void init(Scanner scanner, Tracker tracker) {
         boolean run = true;
         while (run) {
+            System.out.println("=== Menu: ===");
             showMenu();
             System.out.print("Select: ");
             int select = Integer.parseInt(scanner.nextLine());
