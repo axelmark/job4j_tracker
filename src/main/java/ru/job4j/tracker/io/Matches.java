@@ -12,10 +12,16 @@ public class Matches {
         while (count > 0) {
             String player = turn ? "Первый игрок" : "Второй игрок";
             System.out.println(player + " введите число от 1 до 3:");
+
             int matches = Integer.parseInt(input.nextLine());
-            turn = !turn;
-            count -= matches;
-            System.out.printf("осталось %d шт. ", count);
+            if (matches < 1 || matches > 3) {
+                System.out.println("Недопустимое число");
+            } else {
+                turn = !turn;
+                count -= matches;
+                System.out.printf("осталось %d шт. ", count);
+            }
+
         }
         if (!turn) {
             System.out.println("Выиграл первый игрок");
