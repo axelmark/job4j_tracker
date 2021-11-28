@@ -28,7 +28,7 @@ public class Tracker {
 
     public Item findById(int id) {
         for (Item item : items) {
-            if (id == item.getId()) {
+            if (item != null && id == item.getId()) {
                 return item;
             }
         }
