@@ -9,6 +9,6 @@ public class Train implements Vehicle {
 
     @Override
     public void speed() {
-        System.out.println("Approximate speed - 400km/h");
+        System.out.println("Approximate speed - 400km/h.");
     }
 }

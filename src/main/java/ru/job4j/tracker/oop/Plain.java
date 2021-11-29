@@ -9,6 +9,6 @@ public class Plain implements Vehicle {
 
     @Override
     public void speed() {
-        System.out.println("Approximate speed - 1000km/h");
+        System.out.println("Approximate speed - 1000km/h.");
     }
 }
