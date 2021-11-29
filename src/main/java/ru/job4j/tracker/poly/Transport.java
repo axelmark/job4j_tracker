@@ -7,5 +7,4 @@ public interface Transport {
     void passenger(int count);
 
     int fill(int fuel);
-
 }
