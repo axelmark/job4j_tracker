@@ -2,20 +2,14 @@ package ru.job4j.tracker.poly;
 
 public class Bus implements Transport {
 
-    private int count;
-    private int fuel;
-
-    public Bus(int count, int fuel) {
-        this.count = count;
-        this.fuel = fuel;
-    }
-
     @Override
     public void drive() {
+        System.out.println("drive method");
     }
 
     @Override
     public void passenger(int count) {
+        System.out.println("passanger " + count);
     }
 
     @Override
