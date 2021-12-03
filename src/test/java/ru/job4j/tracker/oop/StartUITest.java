@@ -2,7 +2,7 @@ package ru.job4j.tracker.oop;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 import ru.job4j.tracker.Input;
@@ -37,9 +37,9 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = new Item("test_delete");
         tracker.add(item);
-        String[] answer = {String.valueOf(item.getId()), "test_delete"};
+        String[] answer = {String.valueOf(item.getId())};
         StartUI.deleteItem(new StubInput(answer), tracker);
         Item rsl = tracker.findById(item.getId());
-        assertThat(rsl, is(nullValue()));
+        assertNull(rsl);
     }
 }
