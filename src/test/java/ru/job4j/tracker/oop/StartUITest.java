@@ -3,7 +3,6 @@ package ru.job4j.tracker.oop;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
-
 import org.junit.Test;
 import ru.job4j.tracker.CreateAction;
 import ru.job4j.tracker.DeleteAction;
