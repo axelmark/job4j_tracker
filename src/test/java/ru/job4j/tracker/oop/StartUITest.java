@@ -64,21 +64,4 @@ public class StartUITest {
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
-
-//    @Test
-//    public void whenExit() {
-//        Output output = new StubOutput();
-//        Input in = new StubInput(
-//            new String[]{"0"}
-//        );
-//        Tracker tracker = new Tracker();
-//        UserAction[] actions = {
-//            new Exit()
-//        };
-//        new StartUI(output).init(in, tracker, actions);
-//        assertThat(output.toString(), is("Menu."
-//            + System.lineSeparator()
-//            + "0. Exit" + System.lineSeparator()
-//        ));
-//    }
 }
