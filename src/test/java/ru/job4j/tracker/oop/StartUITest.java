@@ -7,10 +7,12 @@ import static org.hamcrest.Matchers.nullValue;
 import org.junit.Test;
 import ru.job4j.tracker.CreateAction;
 import ru.job4j.tracker.DeleteAction;
-import ru.job4j.tracker.Exit;
+import ru.job4j.tracker.ExitAction;
+import ru.job4j.tracker.FindByNameAction;
 import ru.job4j.tracker.Input;
 import ru.job4j.tracker.Output;
 import ru.job4j.tracker.ReplaceAction;
+import ru.job4j.tracker.ShowAllAction;
 import ru.job4j.tracker.StubInput;
 import ru.job4j.tracker.StubOutput;
 import ru.job4j.tracker.UserAction;
@@ -26,7 +28,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         UserAction[] actions = {
             new CreateAction(output),
-            new Exit()
+            new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), is("Item name"));
@@ -43,10 +45,58 @@ public class StartUITest {
         );
         UserAction[] actions = {
             new ReplaceAction(output),
-            new Exit()
+            new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
+    }
+
+    @Test
+    public void whenShowAllItem() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("All item"));
+        Input in = new StubInput(
+            new String[]{"0", "1"}
+        );
+        UserAction[] actions = {
+            new ShowAllAction(output),
+            new ExitAction(output)
+        };
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(tracker.findAll()[0].getName(), is("All item"));
+    }
+
+    @Test
+    public void whenFindByNameItem() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Find name"));
+        Input in = new StubInput(
+            new String[]{"0", item.getName(), "1"}
+        );
+        UserAction[] actions = {
+            new FindByNameAction(output),
+            new ExitAction(output)
+        };
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(tracker.findAll()[0].getName(), is(item.getName()));
+    }
+
+    @Test
+    public void whenFindByIdItem() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Find name by id"));
+        Input in = new StubInput(
+            new String[]{"0", String.valueOf(item.getId()), "1"}
+        );
+        UserAction[] actions = {
+            new FindByNameAction(output),
+            new ExitAction(output)
+        };
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId()).getName(), is(item.getName()));
     }
 
     @Test
@@ -59,7 +109,7 @@ public class StartUITest {
         );
         UserAction[] actions = {
             new DeleteAction(output),
-            new Exit()
+            new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));

@@ -4,7 +4,7 @@ import ru.job4j.tracker.ConsoleInput;
 import ru.job4j.tracker.ConsoleOutput;
 import ru.job4j.tracker.CreateAction;
 import ru.job4j.tracker.DeleteAction;
-import ru.job4j.tracker.Exit;
+import ru.job4j.tracker.ExitAction;
 import ru.job4j.tracker.FindByIdAction;
 import ru.job4j.tracker.FindByNameAction;
 import ru.job4j.tracker.Input;
@@ -49,7 +49,7 @@ public class StartUI {
             new DeleteAction(output),
             new FindByIdAction(output),
             new FindByNameAction(output),
-            new Exit()
+            new ExitAction(output)
         };
         new StartUI(output).init(input, tracker, actions);
     }
