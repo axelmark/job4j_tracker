@@ -14,26 +14,14 @@ import ru.job4j.tracker.UserAction;
 public class StartUI {
 
     public void init(Input input, Tracker tracker, UserAction[] actions) {
+
         boolean run = true;
         while (run) {
             System.out.println("=== Menu: ===");
             this.showMenu();
-            int select = Integer.parseInt(input.askStr("Enter id: "));
-            if (select == 0) {
-                run = actions[select].execute(input, tracker);
-            } else if (select == 1) {
-                run = actions[select].execute(input, tracker);
-            } else if (select == 2) {
-                run = actions[select].execute(input, tracker);
-            } else if (select == 3) {
-                run = actions[select].execute(input, tracker);
-            } else if (select == 4) {
-                run = actions[select].execute(input, tracker);
-            } else if (select == 5) {
-                run = actions[select].execute(input, tracker);
-            } else if (select == 6) {
-                run = actions[select].execute(input, tracker);
-            }
+            int select = input.askInt("Select: ");
+            UserAction action = actions[select];
+            run = action.execute(input, tracker);
         }
     }
 
