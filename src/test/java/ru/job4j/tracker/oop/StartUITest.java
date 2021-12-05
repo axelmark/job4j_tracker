@@ -8,6 +8,7 @@ import org.junit.Test;
 import ru.job4j.tracker.CreateAction;
 import ru.job4j.tracker.DeleteAction;
 import ru.job4j.tracker.ExitAction;
+import ru.job4j.tracker.FindByIdAction;
 import ru.job4j.tracker.FindByNameAction;
 import ru.job4j.tracker.Input;
 import ru.job4j.tracker.Output;
@@ -48,7 +49,19 @@ public class StartUITest {
             new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
+        String ln = System.lineSeparator();
+        assertThat(output.toString(), is(
+            "=== Menu: ===" + ln
+                + "0. Edit item" + ln
+                + "1. Exit" + ln
+                + "=== Edit item ===" + ln
+                + "Заявка изменена успешно." + ln
+                + "=== Menu: ===" + ln
+                + "0. Edit item" + ln
+                + "1. Exit" + ln
+                + "=== Exit Program ===" + ln
+
+        ));
     }
 
     @Test
@@ -71,7 +84,7 @@ public class StartUITest {
     public void whenFindByNameItem() {
         Output output = new StubOutput();
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Find name"));
+        Item item = tracker.add(new Item("Name"));
         Input in = new StubInput(
             new String[]{"0", item.getName(), "1"}
         );
@@ -80,7 +93,18 @@ public class StartUITest {
             new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0].getName(), is(item.getName()));
+        String ln = System.lineSeparator();
+        assertThat(output.toString(), is(
+            "=== Menu: ===" + ln
+                + "0. Find by name" + ln
+                + "1. Exit" + ln
+                + "=== Find items by name ===" + ln
+                + item + ln
+                + "=== Menu: ===" + ln
+                + "0. Find by name" + ln
+                + "1. Exit" + ln
+                + "=== Exit Program ===" + ln
+        ));
     }
 
     @Test
@@ -92,11 +116,22 @@ public class StartUITest {
             new String[]{"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
-            new FindByNameAction(output),
+            new FindByIdAction(output),
             new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName(), is(item.getName()));
+        String ln = System.lineSeparator();
+        assertThat(output.toString(), is(
+            "=== Menu: ===" + ln
+                + "0. Find by id" + ln
+                + "1. Exit" + ln
+                + "=== Find item by id ===" + ln
+                + item + ln
+                + "=== Menu: ===" + ln
+                + "0. Find by id" + ln
+                + "1. Exit" + ln
+                + "=== Exit Program ===" + ln
+        ));
     }
 
     @Test
