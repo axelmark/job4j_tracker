@@ -24,7 +24,6 @@ public class StartUI {
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
-            System.out.println("=== Menu: ===");
             this.showMenu(actions);
             int select = input.askInt("Select: ");
             UserAction action = actions[select];
@@ -33,8 +32,9 @@ public class StartUI {
     }
 
     private void showMenu(UserAction[] actions) {
+        out.println("=== Menu: ===");
         for (int i = 0; i < actions.length; i++) {
-            System.out.println(i + ". " + actions[i].name());
+            out.println(i + ". " + actions[i].name());
         }
     }
 
