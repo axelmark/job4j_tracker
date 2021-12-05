@@ -77,7 +77,18 @@ public class StartUITest {
             new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0].getName(), is("All item"));
+        String ln = System.lineSeparator();
+        assertThat(output.toString(), is(
+            "=== Menu: ===" + ln
+                + "0. Show all items" + ln
+                + "1. Exit" + ln
+                + "=== Show all items ===" + ln
+                + item + ln
+                + "=== Menu: ===" + ln
+                + "0. Show all items" + ln
+                + "1. Exit" + ln
+                + "=== Exit Program ===" + ln
+        ));
     }
 
     @Test
