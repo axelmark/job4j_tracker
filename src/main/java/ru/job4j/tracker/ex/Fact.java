@@ -9,9 +9,9 @@ public class Fact {
     public int calc(int n) {
         int rsl = 1;
         if (n < 0) {
-            throw new IllegalArgumentException("Argument should be positive");
+            throw new IllegalArgumentException("Аргумент может равняться 0");
         }
-        for (int index = 1; index <= n; index++) {
+        for (int index = 2; index <= n; index++) {
             rsl *= index;
         }
         return rsl;
