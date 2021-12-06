@@ -10,7 +10,7 @@ public class Fact {
     public int calc(int n) {
         int rsl = 1;
         if (n < 0) {
-            throw new IllegalArgumentException("Argument should be more than zero");
+            throw new IllegalArgumentException("Argument should be positive");
         }
         for (int index = 1; index <= n; index++) {
             rsl *= index;
