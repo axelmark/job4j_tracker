@@ -1,6 +1,5 @@
 package ru.job4j.tracker.oop;
 
-import ru.job4j.tracker.ConsoleInput;
 import ru.job4j.tracker.ConsoleOutput;
 import ru.job4j.tracker.CreateAction;
 import ru.job4j.tracker.DeleteAction;
@@ -12,6 +11,7 @@ import ru.job4j.tracker.Output;
 import ru.job4j.tracker.ReplaceAction;
 import ru.job4j.tracker.ShowAllAction;
 import ru.job4j.tracker.UserAction;
+import ru.job4j.tracker.ValidateInput;
 
 public class StartUI {
 
@@ -26,6 +26,10 @@ public class StartUI {
         while (run) {
             this.showMenu(actions);
             int select = input.askInt("Select: ");
+            if (select < 0 || select >= actions.length) {
+                out.println("Wrong input, you can select: 0 .. " + (actions.length - 1));
+                continue;
+            }
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
@@ -40,7 +44,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ConsoleInput();
+        Input input = new ValidateInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
             new CreateAction(output),
@@ -49,7 +53,7 @@ public class StartUI {
             new DeleteAction(output),
             new FindByIdAction(output),
             new FindByNameAction(output),
-            new ExitAction(output)
+            new ExitAction(output),
         };
         new StartUI(output).init(input, tracker, actions);
     }
