@@ -1,5 +1,6 @@
 package ru.job4j.tracker.oop;
 
+import ru.job4j.tracker.ConsoleInput;
 import ru.job4j.tracker.ConsoleOutput;
 import ru.job4j.tracker.CreateAction;
 import ru.job4j.tracker.DeleteAction;
@@ -44,7 +45,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ValidateInput();
+        Input input = new ValidateInput(output, new ConsoleInput());
         Tracker tracker = new Tracker();
         UserAction[] actions = {
             new CreateAction(output),
