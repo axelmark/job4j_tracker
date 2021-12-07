@@ -9,7 +9,7 @@ public class Fact {
     public int calc(int n) {
         int rsl = 1;
         if (n < 0) {
-            throw new IllegalArgumentException("Аргумент может равняться 0");
+            throw new IllegalArgumentException("Аргумент должен быть больше либо равен 0");
         }
         for (int index = 2; index <= n; index++) {
             rsl *= index;
