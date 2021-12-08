@@ -11,10 +11,20 @@ public class ValidateInputTest {
     public void whenInvalidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-            new String[]{"1"}
+            new String[]{"1", "2", "3"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
         assertThat(selected, is(1));
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void whenNotDigitInput() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+            new String[]{"q", "sdfs", "q3eew"}
+        );
+        ValidateInput input = new ValidateInput(out, in);
+        int selected = input.askInt("Enter menu:");
     }
 }

@@ -27,9 +27,15 @@ public class StartUI {
         while (run) {
             this.showMenu(actions);
             int select = input.askInt("Select: ");
+//            try {
+//                isNumber(select);
+//            } catch (NumberFormatException nfe) {
+//                nfe.printStackTrace();
+//            }
+
             if (select < 0 || select >= actions.length) {
-                out.println("Wrong input, you can select: 0 .. " + (actions.length - 1));
-                continue;
+                throw new NumberFormatException(
+                    "Wrong input, you can select: 0 .. " + (actions.length - 1));
             }
             UserAction action = actions[select];
             run = action.execute(input, tracker);

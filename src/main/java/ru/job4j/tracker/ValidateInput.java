@@ -24,8 +24,8 @@ public class ValidateInput implements Input {
             try {
                 isNumber(rsl);
                 System.out.println("Please enter validate data again.");
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
+            } catch (NumberFormatException nfe) {
+                nfe.printStackTrace();
             }
             value = Integer.parseInt(rsl);
             invalid = false;
@@ -44,5 +44,4 @@ public class ValidateInput implements Input {
         }
         return rsl;
     }
-
 }
