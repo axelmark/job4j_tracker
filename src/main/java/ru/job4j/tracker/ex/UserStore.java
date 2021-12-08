@@ -32,6 +32,5 @@ public class UserStore {
         } catch (UserNotFoundException unfe) {
             unfe.printStackTrace();
         }
-
     }
 }
