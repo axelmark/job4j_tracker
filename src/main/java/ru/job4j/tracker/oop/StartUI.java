@@ -8,6 +8,7 @@ import ru.job4j.tracker.ExitAction;
 import ru.job4j.tracker.FindByIdAction;
 import ru.job4j.tracker.FindByNameAction;
 import ru.job4j.tracker.Input;
+import ru.job4j.tracker.Log4File;
 import ru.job4j.tracker.Output;
 import ru.job4j.tracker.ReplaceAction;
 import ru.job4j.tracker.ShowAllAction;
@@ -58,5 +59,8 @@ public class StartUI {
             new ExitAction(output),
         };
         new StartUI(output).init(input, tracker, actions);
+        Log4File log = Log4File.getInstance();
+        log.add("add new Item");
+        log.save();
     }
 }
