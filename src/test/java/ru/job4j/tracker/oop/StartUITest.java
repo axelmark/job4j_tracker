@@ -20,7 +20,7 @@ import ru.job4j.tracker.UserAction;
 
 public class StartUITest {
 
-    @Test
+    @Test(expected = NumberFormatException.class)
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
