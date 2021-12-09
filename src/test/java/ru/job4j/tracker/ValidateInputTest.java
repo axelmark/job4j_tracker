@@ -43,4 +43,5 @@ public class ValidateInputTest {
         int selected = in.askInt("Enter menu:");
         assertThat(selected, is(-1));
     }
+
 }
