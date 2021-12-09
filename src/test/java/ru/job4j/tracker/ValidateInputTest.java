@@ -14,7 +14,7 @@ public class ValidateInputTest {
             new String[]{"1", "2", "3"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int selected = input.askInt("Enter menu:");
+        int selected = in.askInt("Enter menu:");
         assertThat(selected, is(1));
     }
 
@@ -25,6 +25,6 @@ public class ValidateInputTest {
             new String[]{"q", "sdfs", "q3eew"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int selected = input.askInt("Enter menu:");
+        int selected = in.askInt("Enter menu:");
     }
 }
