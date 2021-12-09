@@ -27,11 +27,6 @@ public class StartUI {
         while (run) {
             this.showMenu(actions);
             int select = input.askInt("Select: ");
-//            try {
-//                isNumber(select);
-//            } catch (NumberFormatException nfe) {
-//                nfe.printStackTrace();
-//            }
 
             if (select < 0 || select >= actions.length) {
                 throw new NumberFormatException(
