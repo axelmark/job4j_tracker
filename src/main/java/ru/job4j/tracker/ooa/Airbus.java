@@ -29,6 +29,7 @@ public final class Airbus extends Aircraft {
         } else {
             System.out.println("Количество двигателей равно: " + COUNT_ENGINE);
         }
+
     }
 
     @Override
