@@ -6,7 +6,7 @@ import ru.job4j.tracker.oop.Tracker;
 public final class SingleTracker {
 
     private Tracker tracker = new Tracker();
-    static SingleTracker singleTracker = null;
+    private static SingleTracker singleTracker = null;
 
     private SingleTracker() {
     }
