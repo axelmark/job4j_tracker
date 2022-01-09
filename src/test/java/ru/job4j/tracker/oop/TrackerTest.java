@@ -3,6 +3,7 @@ package ru.job4j.tracker.oop;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
+import java.util.List;
 import org.junit.Test;
 
 public class TrackerTest {
@@ -11,9 +12,9 @@ public class TrackerTest {
     public void whenTestFindById() {
         Tracker tracker = new Tracker();
         Item bug = new Item("Bug");
-        Item item = tracker.add(bug);
-        Item result = tracker.findById(item.getId());
-        assertThat(result.getName(), is(item.getName()));
+        List<Item> item = tracker.add(bug);
+        Item result = tracker.findById(item.get(0).getId());
+        assertThat(result.getName(), is(item.get(0).getName()));
     }
 
     @Test
@@ -23,9 +24,10 @@ public class TrackerTest {
         Item second = new Item("Second");
         tracker.add(first);
         tracker.add(second);
-        Item[] result = tracker.findAll();
-        assertThat(result[0].getName(), is(first.getName()));
-        assertThat(result[1].getName(), is(second.getName()));
+        List<Item> result = tracker.findAll();
+
+        assertThat(result.get(0).getName(), is(first.getName()));
+        assertThat(result.get(1).getName(), is(second.getName()));
     }
 
     @Test
@@ -38,8 +40,8 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
-        Item[] result = tracker.findByName(first.getName());
-        assertThat(result.length, is(3));
+        List<Item> result = tracker.findByName(first.getName());
+        assertThat(result.size(), is(3));
     }
 
     @Test
@@ -52,8 +54,8 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
-        Item[] result = tracker.findByName(second.getName());
-        assertThat(result[1].getName(), is(second.getName()));
+        List<Item> result = tracker.findByName(second.getName());
+        assertThat(result.get(1).getName(), is(second.getName()));
     }
 
     @Test
