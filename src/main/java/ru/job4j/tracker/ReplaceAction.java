@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 import ru.job4j.tracker.oop.Item;
-import ru.job4j.tracker.oop.Tracker;
 
 public class ReplaceAction implements UserAction {
 

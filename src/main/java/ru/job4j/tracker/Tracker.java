@@ -1,7 +1,8 @@
-package ru.job4j.tracker.oop;
+package ru.job4j.tracker;
 
 import java.util.ArrayList;
 import java.util.List;
+import ru.job4j.tracker.oop.Item;
 
 public class Tracker {
 

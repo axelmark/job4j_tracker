@@ -1,10 +1,11 @@
-package ru.job4j.tracker.oop;
+package ru.job4j.tracker;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 import java.util.List;
 import org.junit.Test;
+import ru.job4j.tracker.oop.Item;
 
 public class TrackerTest {
 
