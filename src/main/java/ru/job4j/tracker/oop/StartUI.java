@@ -1,20 +1,5 @@
 package ru.job4j.tracker.oop;
 
-//import ru.job4j.tracker.ConsoleInput;
-//import ru.job4j.tracker.ConsoleOutput;
-//import ru.job4j.tracker.CreateAction;
-//import ru.job4j.tracker.DeleteAction;
-//import ru.job4j.tracker.ExitAction;
-//import ru.job4j.tracker.FindByIdAction;
-//import ru.job4j.tracker.FindByNameAction;
-//import ru.job4j.tracker.Input;
-//import ru.job4j.tracker.Log4File;
-//import ru.job4j.tracker.Output;
-//import ru.job4j.tracker.ReplaceAction;
-//import ru.job4j.tracker.ShowAllAction;
-//import ru.job4j.tracker.UserAction;
-//import ru.job4j.tracker.ValidateInput;
-
 import ru.job4j.tracker.ConsoleInput;
 import ru.job4j.tracker.ConsoleOutput;
 import ru.job4j.tracker.CreateAction;
