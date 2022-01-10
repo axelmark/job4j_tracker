@@ -26,14 +26,11 @@ public class Tracker {
 
     public Item findById(int id) {
         int index = indexOf(id);
-        if (index != -1) {
-            return items.get(index);
-        }
-        return null;
+        return index != -1 ? items.get(index) : null;
     }
 
     public List<Item> findAll() {
-        return items;
+        return List.copyOf(items);
     }
 
     private int indexOf(int id) {
