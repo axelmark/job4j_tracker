@@ -5,21 +5,18 @@ import java.util.Map;
 
 public class PassportOffice {
 
-    private Map<String, Citizen> citizens = new HashMap<>();
+    private final Map<String, Citizen> citizens = new HashMap<>();
 
     public boolean add(Citizen citizen) {
         boolean rsl = false;
         if (!citizens.containsKey(citizen.getPassport())) {
-            citizens.put(citizen.getPassport(), citizen);
+            citizens.putIfAbsent(citizen.getPassport(), citizen);
             rsl = true;
         }
         return rsl;
     }
 
     public Citizen get(String passport) {
-        if (this.citizens.containsKey(passport)) {
-            return citizens.get(passport);
-        }
-        return null;
+        return citizens.get(passport);
     }
 }
