@@ -3,7 +3,7 @@ package ru.job4j.tracker.collection;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.isEmptyOrNullString;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 
@@ -24,6 +24,6 @@ public class PassportOfficeTest {
         PassportOffice office = new PassportOffice();
         office.add(citizen);
         office.add(citizen2);
-        assertThat(office.get(citizen2.getPassport()).getUsername(), is("Petr Arsentev"));
+        assertFalse(office.add(citizen2));
     }
 }
