@@ -1,4 +1,4 @@
-package ru.job4j.tracker.collection;
+package ru.job4j.collection;
 
 public class Job implements Comparable<Job> {
 
