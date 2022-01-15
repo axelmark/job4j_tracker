@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import ru.job4j.tracker.oop.Item;
-
 public class FindByIdAction implements UserAction {
 
     private final Output out;

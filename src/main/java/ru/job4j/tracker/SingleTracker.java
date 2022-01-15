@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 import java.util.List;
-import ru.job4j.tracker.oop.Item;
 
 public final class SingleTracker {
 

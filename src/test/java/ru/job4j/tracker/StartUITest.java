@@ -5,7 +5,6 @@ import static org.hamcrest.Matchers.is;
 
 import java.util.List;
 import org.junit.Test;
-import ru.job4j.tracker.oop.Item;
 
 public class StartUITest {
 
