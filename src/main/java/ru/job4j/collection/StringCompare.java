@@ -13,10 +13,8 @@ public class StringCompare implements Comparator<String> {
             if (resComp != 0) {
                 rsl = resComp;
                 break;
-            } else {
-                rsl = Integer.compare(left.charAt(i), right.charAt(i));
             }
         }
-        return rsl;
+        return rsl != 0 ? rsl : Integer.compare(left.length(), right.length());
     }
 }
