@@ -9,6 +9,7 @@ import java.util.LinkedList;
  * @author axelmark
  * @version 1.0
  */
+
 public class PriorityQueue {
 
     /**
