@@ -53,12 +53,10 @@ public class BankService {
      * @return - владельца документа.
      */
     public User findByPassport(String passport) {
-        for (User user : users.keySet()) {
-            if (passport.equals(user.getPassport())) {
-                return user;
-            }
-        }
-        return null;
+        return users.keySet().stream()
+            .filter(x -> x.getPassport().equals(passport))
+            .findFirst()
+            .orElse(null);
     }
 
     /**
@@ -70,27 +68,45 @@ public class BankService {
      */
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
-        if (user != null) {
-            for (Account account : users.get(user)) {
-                if (account.getRequisite().equals(requisite)) {
-                    return account;
-                }
-            }
-        }
-        return null;
+//        if (user != null) {
+//            for (Account account : users.get(user)) {
+//                if (account.getRequisite().equals(requisite)) {
+//                    return account;
+//                }
+//            }
+//        }
+//        return null;
+        return users.get(user)
+            .stream()
+            .filter(x -> x.getRequisite()
+                .equals(requisite))
+            .findFirst()
+            .orElse(null);
     }
+
+//    public Subject findBySubjectName(String account, String name) {
+//        Student a = findByAccount(account);
+//        if (a != null) {
+//            return students.get(a)
+//                .stream()
+//                .filter(s -> s.getName().equals(name))
+//                .findFirst()
+//                .orElse(null);
+//        }
+//        return null;
+//    }
 
     /**
      * Метод предназначен для перечисления денег с одного счёта на другой счёт
-     *
+     * <p>
      * Если счёт не найден или не хватает денег на счёте srcAccount (с которого переводят), то метод
      * должен вернуть false.
      *
-     * @param srcPassport - паспорт отправителя.
-     * @param srcRequisite - реквизиты отправителя.
-     * @param destPassport - паспорт получателя.
+     * @param srcPassport   - паспорт отправителя.
+     * @param srcRequisite  - реквизиты отправителя.
+     * @param destPassport  - паспорт получателя.
      * @param destRequisite - реквизиты получателя.
-     * @param amount - сумма операции.
+     * @param amount        - сумма операции.
      * @return - true если перевод успешен.
      */
     public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport,
