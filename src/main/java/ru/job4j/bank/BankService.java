@@ -66,16 +66,9 @@ public class BankService {
      * @param requisite - реквизиты счета.
      * @return - счет.
      */
+
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
-//        if (user != null) {
-//            for (Account account : users.get(user)) {
-//                if (account.getRequisite().equals(requisite)) {
-//                    return account;
-//                }
-//            }
-//        }
-//        return null;
         return users.get(user)
             .stream()
             .filter(x -> x.getRequisite()
@@ -83,18 +76,6 @@ public class BankService {
             .findFirst()
             .orElse(null);
     }
-
-//    public Subject findBySubjectName(String account, String name) {
-//        Student a = findByAccount(account);
-//        if (a != null) {
-//            return students.get(a)
-//                .stream()
-//                .filter(s -> s.getName().equals(name))
-//                .findFirst()
-//                .orElse(null);
-//        }
-//        return null;
-//    }
 
     /**
      * Метод предназначен для перечисления денег с одного счёта на другой счёт
