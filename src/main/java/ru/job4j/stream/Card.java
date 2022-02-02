@@ -20,8 +20,9 @@ public class Card {
     }
 
     public static void main(String[] args) {
-        Suit[] suits = {Suit.Diamonds, Suit.Clubs, Suit.Hearts, Suit.Spades};
-        Value[] values = {Value.V_6, Value.V_7, Value.V_8};
-        Card card = new Card(suits, values);
+        Card card = new Card(
+            new Suit[]{Suit.Diamonds, Suit.Clubs, Suit.Hearts, Suit.Spades},
+            new Value[]{Value.V_6, Value.V_7, Value.V_8}
+        );
     }
 }
