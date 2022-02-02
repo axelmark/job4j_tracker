@@ -53,14 +53,11 @@ public class BankService {
      * @return - владельца документа.
      */
     public User findByPassport(String passport) {
-        User user = findByPassport(passport);
-        if (user != null) {
-            users.keySet().stream()
-                .filter(x -> x.getPassport().equals(passport))
-                .findFirst()
-                .orElse(null);
-        }
-        return null;
+        return users.keySet()
+            .stream()
+            .filter(x -> x.getPassport().equals(passport))
+            .findFirst()
+            .orElse(null);
     }
 
     /**
