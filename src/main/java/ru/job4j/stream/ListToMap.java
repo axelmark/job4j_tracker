@@ -9,7 +9,7 @@ public class ListToMap {
 
     public static Map<String, Student> convert(List<Student> list) {
         return list
-            .stream().distinct()
+            .stream()
             .collect(Collectors.toMap(
                 Student::getSurname,
                 Function.identity(),
