@@ -11,4 +11,5 @@ public class School {
             .filter(predict)
             .collect(Collectors.toList());
     }
+
 }
