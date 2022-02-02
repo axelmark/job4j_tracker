@@ -26,6 +26,7 @@ public class BankService {
      *
      * @param user - клиент.
      */
+
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
     }
@@ -52,6 +53,7 @@ public class BankService {
      * @param passport - паспорт клиента.
      * @return - владельца документа.
      */
+
     public User findByPassport(String passport) {
         return users.keySet()
             .stream()
@@ -67,7 +69,6 @@ public class BankService {
      * @param requisite - реквизиты счета.
      * @return - счет.
      */
-
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -94,6 +95,7 @@ public class BankService {
      * @param amount        - сумма операции.
      * @return - true если перевод успешен.
      */
+
     public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport,
         String destRequisite, double amount) {
         boolean rsl = false;
