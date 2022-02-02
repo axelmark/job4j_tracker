@@ -53,10 +53,14 @@ public class BankService {
      * @return - владельца документа.
      */
     public User findByPassport(String passport) {
-        return users.keySet().stream()
-            .filter(x -> x.getPassport().equals(passport))
-            .findFirst()
-            .orElse(null);
+        User user = findByPassport(passport);
+        if (user != null) {
+            users.keySet().stream()
+                .filter(x -> x.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
+        }
+        return null;
     }
 
     /**
@@ -69,12 +73,15 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
-        return users.get(user)
-            .stream()
-            .filter(x -> x.getRequisite()
-                .equals(requisite))
-            .findFirst()
-            .orElse(null);
+        if (user != null) {
+            return users.get(user)
+                .stream()
+                .filter(x -> x.getRequisite()
+                    .equals(requisite))
+                .findFirst()
+                .orElse(null);
+        }
+        return null;
     }
 
     /**
