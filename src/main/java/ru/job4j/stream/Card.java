@@ -20,13 +20,18 @@ public class Card {
         this.value = value;
     }
 
-    public static void main(String[] args) {
-        Suit[] suit = {Suit.Clubs, Suit.Diamonds, Suit.Hearts, Suit.Spades};
-        Value[] values = {Value.V_6, Value.V_7, Value.V_8};
+    @Override
+    public String toString() {
+        return "Card{"
+            + "suit=" + suit
+            + ", value=" + value
+            + '}';
+    }
 
-        Stream.of(suit)
-            .flatMap(level -> Stream.of(values)
-                .map(task -> level + " " + task))
+    public static void main(String[] args) {
+        Stream.of(Suit.values())
+            .flatMap(level -> Stream.of(Value.values())
+                .map(task -> new Card(level, task)))
             .forEach(System.out::println);
     }
 }
