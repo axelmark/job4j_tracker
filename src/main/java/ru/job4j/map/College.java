@@ -17,6 +17,7 @@ public class College {
         for (Student student : students.keySet()) {
             if (student.getAccount().equals(account)) {
                 rsl = Optional.of(student);
+                break;
             }
         }
         return rsl;
@@ -29,6 +30,7 @@ public class College {
             for (Subject val : students.get(st.get())) {
                 if (val.getName().equals(name)) {
                     rsl = Optional.of(val);
+                    break;
                 }
             }
         }
