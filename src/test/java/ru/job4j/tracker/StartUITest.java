@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.is;
 
 import java.util.List;
 import org.junit.Test;
+import ru.job4j.tracker.action.*;
 
 public class StartUITest {
 
@@ -16,8 +17,8 @@ public class StartUITest {
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-            new CreateAction(output),
-            new ExitAction(output)
+            new Create(output),
+            new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findAll().get(0).getName(), is("Item name"));
@@ -32,8 +33,8 @@ public class StartUITest {
             new String[]{"0", String.valueOf(item.get(0).getId()), "New name", "1"}
         );
         UserAction[] actions = {
-            new ReplaceAction(output),
-            new ExitAction(output)
+            new Replace(output),
+            new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -60,8 +61,8 @@ public class StartUITest {
             new String[]{"0", "1"}
         );
         UserAction[] actions = {
-            new ShowAllAction(output),
-            new ExitAction(output)
+            new ShowAll(output),
+            new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -87,8 +88,8 @@ public class StartUITest {
             new String[]{"0", item.get(0).getName(), "1"}
         );
         UserAction[] actions = {
-            new FindByNameAction(output),
-            new ExitAction(output)
+            new FindByName(output),
+            new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -114,8 +115,8 @@ public class StartUITest {
             new String[]{"0", String.valueOf(item.get(0).getId()), "1"}
         );
         UserAction[] actions = {
-            new FindByIdAction(output),
-            new ExitAction(output)
+            new FindById(output),
+            new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -141,8 +142,8 @@ public class StartUITest {
             new String[]{"0", String.valueOf(item.get(0).getId()), "1"}
         );
         UserAction[] actions = {
-            new DeleteAction(output),
-            new ExitAction(output)
+            new Delete(output),
+            new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
         String ln = System.lineSeparator();
