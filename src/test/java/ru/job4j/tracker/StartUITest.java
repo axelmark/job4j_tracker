@@ -15,19 +15,19 @@ public class StartUITest {
         Input in = new StubInput(
             new String[]{"0", "Item name", "1"}
         );
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         UserAction[] actions = {
             new Create(output),
             new Exit(output)
         };
-        new StartUI(output).init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, List.of(actions));
         assertThat(tracker.findAll().get(0).getName(), is("Item name"));
     }
 
     @Test
     public void whenReplaceItem() {
         Output output = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         List<Item> item = tracker.add(new Item("Replaced item"));
         Input in = new StubInput(
             new String[]{"0", String.valueOf(item.get(0).getId()), "New name", "1"}
@@ -36,7 +36,7 @@ public class StartUITest {
             new Replace(output),
             new Exit(output)
         };
-        new StartUI(output).init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString(), is(
             "=== Menu: ===" + ln
@@ -48,14 +48,13 @@ public class StartUITest {
                 + "0. Edit item" + ln
                 + "1. Exit" + ln
                 + "=== Exit Program ===" + ln
-
         ));
     }
 
     @Test
     public void whenShowAllItem() {
         Output output = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         List<Item> item = tracker.add(new Item("All item"));
         Input in = new StubInput(
             new String[]{"0", "1"}
@@ -64,7 +63,7 @@ public class StartUITest {
             new ShowAll(output),
             new Exit(output)
         };
-        new StartUI(output).init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString(), is(
             "=== Menu: ===" + ln
@@ -82,7 +81,7 @@ public class StartUITest {
     @Test
     public void whenFindByNameItem() {
         Output output = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         List<Item> item = tracker.add(new Item("Name"));
         Input in = new StubInput(
             new String[]{"0", item.get(0).getName(), "1"}
@@ -91,7 +90,7 @@ public class StartUITest {
             new FindByName(output),
             new Exit(output)
         };
-        new StartUI(output).init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString(), is(
             "=== Menu: ===" + ln
@@ -109,7 +108,7 @@ public class StartUITest {
     @Test
     public void whenFindByIdItem() {
         Output output = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         List<Item> item = tracker.add(new Item("Find name by id"));
         Input in = new StubInput(
             new String[]{"0", String.valueOf(item.get(0).getId()), "1"}
@@ -118,7 +117,7 @@ public class StartUITest {
             new FindById(output),
             new Exit(output)
         };
-        new StartUI(output).init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString(), is(
             "=== Menu: ===" + ln
@@ -136,7 +135,7 @@ public class StartUITest {
     @Test
     public void whenDeleteItem() {
         Output output = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         List<Item> item = tracker.add(new Item("Deleted item"));
         Input in = new StubInput(
             new String[]{"0", String.valueOf(item.get(0).getId()), "1"}
@@ -145,7 +144,7 @@ public class StartUITest {
             new Delete(output),
             new Exit(output)
         };
-        new StartUI(output).init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString(), is(
             "=== Menu: ===" + ln
@@ -159,5 +158,4 @@ public class StartUITest {
                 + "=== Exit Program ===" + ln
         ));
     }
-
 }
