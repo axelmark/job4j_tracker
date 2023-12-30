@@ -28,9 +28,9 @@ public class StartUITest {
     public void whenReplaceItem() {
         Output output = new StubOutput();
         MemTracker tracker = new MemTracker();
-        List<Item> item = tracker.add(new Item("Replaced item"));
+        Item item = tracker.add(new Item("Replaced item"));
         Input in = new StubInput(
-            new String[]{"0", String.valueOf(item.get(0).getId()), "New name", "1"}
+            new String[]{"0", String.valueOf(item.getId()), "New name", "1"}
         );
         UserAction[] actions = {
             new Replace(output),
@@ -55,7 +55,7 @@ public class StartUITest {
     public void whenShowAllItem() {
         Output output = new StubOutput();
         MemTracker tracker = new MemTracker();
-        List<Item> item = tracker.add(new Item("All item"));
+        Item item = tracker.add(new Item("All item"));
         Input in = new StubInput(
             new String[]{"0", "1"}
         );
@@ -82,9 +82,9 @@ public class StartUITest {
     public void whenFindByNameItem() {
         Output output = new StubOutput();
         MemTracker tracker = new MemTracker();
-        List<Item> item = tracker.add(new Item("Name"));
+        Item item = tracker.add(new Item("Name"));
         Input in = new StubInput(
-            new String[]{"0", item.get(0).getName(), "1"}
+            new String[]{"0", item.getName(), "1"}
         );
         UserAction[] actions = {
             new FindByName(output),
@@ -109,9 +109,9 @@ public class StartUITest {
     public void whenFindByIdItem() {
         Output output = new StubOutput();
         MemTracker tracker = new MemTracker();
-        List<Item> item = tracker.add(new Item("Find name by id"));
+        Item item = tracker.add(new Item("Find name by id"));
         Input in = new StubInput(
-            new String[]{"0", String.valueOf(item.get(0).getId()), "1"}
+            new String[]{"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
             new FindById(output),
@@ -136,9 +136,9 @@ public class StartUITest {
     public void whenDeleteItem() {
         Output output = new StubOutput();
         MemTracker tracker = new MemTracker();
-        List<Item> item = tracker.add(new Item("Deleted item"));
+        Item item = tracker.add(new Item("Deleted item"));
         Input in = new StubInput(
-            new String[]{"0", String.valueOf(item.get(0).getId()), "1"}
+            new String[]{"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
             new Delete(output),

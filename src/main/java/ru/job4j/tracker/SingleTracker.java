@@ -17,7 +17,7 @@ public final class SingleTracker {
         return singleTracker;
     }
 
-    public List<Item> add(Item item) {
+    public Item add(Item item) {
         return tracker.add(item);
     }
 

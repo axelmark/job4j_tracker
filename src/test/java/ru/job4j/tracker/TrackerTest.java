@@ -12,9 +12,9 @@ public class TrackerTest {
     public void whenTestFindById() {
         MemTracker tracker = new MemTracker();
         Item bug = new Item("Bug");
-        List<Item> item = tracker.add(bug);
-        Item result = tracker.findById(item.get(0).getId());
-        assertThat(result.getName(), is(item.get(0).getName()));
+        Item item = tracker.add(bug);
+        Item result = tracker.findById(item.getId());
+        assertThat(result.getName(), is(item.getName()));
     }
 
     @Test
@@ -95,5 +95,4 @@ public class TrackerTest {
         boolean rsl = tracker.delete(id);
         assertThat(rsl, is(true));
     }
-
 }

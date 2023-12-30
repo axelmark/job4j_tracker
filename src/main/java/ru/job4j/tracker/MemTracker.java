@@ -8,10 +8,10 @@ public class MemTracker implements Store {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
 
-    public List<Item> add(Item item) {
+    public Item add(Item item) {
         item.setId(ids++);
         items.add(item);
-        return items;
+        return item;
     }
 
     public List<Item> findByName(String name) {

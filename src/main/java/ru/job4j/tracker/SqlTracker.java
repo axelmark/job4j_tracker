@@ -1,9 +1,8 @@
 package ru.job4j.tracker;
 
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -19,33 +18,100 @@ public class SqlTracker implements Store {
     }
 
     @Override
-    public List<Item> add(Item item) {
-        return null;
+    public Item add(Item item) {
+        try (PreparedStatement statement =
+                     connection.prepareStatement("INSERT INTO tracker(name, created) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS)) {
+            statement.setString(1, item.getName());
+            statement.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
+            var res = statement.execute();
+
+            try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    item.setId(generatedKeys.getInt(1));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return item;
     }
 
     @Override
     public boolean replace(int id, Item item) {
-        return false;
+        boolean result = false;
+        try (PreparedStatement statement = connection.prepareStatement("UPDATE tracker SET name=(?) WHERE id=(?);")) {
+            statement.setString(1, item.getName());
+            statement.setInt(2, id);
+            result = statement.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
     public boolean delete(int id) {
-        return false;
+        boolean result = false;
+        try (PreparedStatement statement = connection.prepareStatement("DELETE FROM tracker WHERE id = ?")) {
+            statement.setInt(1, id);
+            result = statement.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
     public Item findById(int id) {
-        return null;
+        Item item = null;
+        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM tracker WHERE id=(?)")) {
+            statement.setInt(1, id);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    item = new Item(resultSet.getInt("id"), resultSet.getString("name"));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return item;
     }
 
     @Override
     public List<Item> findByName(String key) {
-        return List.of();
+        List<Item> allItems = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM tracker where name=(?)")) {
+            statement.setString(1, key);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    allItems.add(new Item(
+                            resultSet.getInt("id"),
+                            resultSet.getString("name")
+                    ));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return allItems;
     }
 
     @Override
     public List<Item> findAll() {
-        return List.of();
+        List<Item> allItems = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM tracker")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    allItems.add(new Item(
+                            resultSet.getInt("id"),
+                            resultSet.getString("name")
+                    ));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return allItems;
     }
 
     @Override
