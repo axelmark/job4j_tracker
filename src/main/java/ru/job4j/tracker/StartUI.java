@@ -2,7 +2,6 @@ package ru.job4j.tracker;
 
 import ru.job4j.tracker.action.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class StartUI {
@@ -13,7 +12,7 @@ public class StartUI {
         this.out = out;
     }
 
-    public void init(Input input, MemTracker tracker, List<UserAction> actions) {
+    public void init(Input input, Store tracker, List<UserAction> actions) {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
