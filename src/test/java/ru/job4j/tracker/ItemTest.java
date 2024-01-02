@@ -1,17 +1,15 @@
-/*
 package ru.job4j.tracker;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import org.junit.Test;
 
 public class ItemTest {
 
-    @Test
+  /*  @Test
     public void icheckItemAscByName() {
         List<Item> items = Arrays.asList(
             new Item(1, "Petr"),
@@ -24,7 +22,7 @@ public class ItemTest {
             new Item(1, "Petr")
         );
         Collections.sort(items, new ItemAscByName());
-        assertThat(items.toString(), is(expected.toString()));
+        assertThat(items.toString()).isEqualTo(expected.toString());
     }
 
     @Test
@@ -40,6 +38,6 @@ public class ItemTest {
             new Item(3, "Alexey")
         );
         Collections.sort(items, new ItemDescByName());
-        assertThat(items.toString(), is(expected.toString()));
-    }
-}*/
+        assertThat(items.toString()).isEqualTo(expected.toString());
+    }*/
+}

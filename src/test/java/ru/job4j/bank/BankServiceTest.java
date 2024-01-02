@@ -1,10 +1,10 @@
 package ru.job4j.bank;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.Optional;
-import org.junit.Test;
 
 public class BankServiceTest {
 
@@ -13,7 +13,7 @@ public class BankServiceTest {
         User user = new User("3434", "Petr Arsentev");
         BankService bank = new BankService();
         bank.addUser(user);
-        assertThat(bank.findByPassport("3434").get(), is(user));
+        assertThat(bank.findByPassport("3434").get()).isEqualTo(user);
     }
 
     @Test
@@ -21,7 +21,7 @@ public class BankServiceTest {
         User user = new User("3434", "Petr Arsentev");
         BankService bank = new BankService();
         bank.addUser(user);
-        assertThat(bank.findByPassport("34"), is(Optional.empty()));
+        assertThat(bank.findByPassport("34")).isEqualTo(Optional.empty());
     }
 
     @Test
@@ -30,7 +30,7 @@ public class BankServiceTest {
         BankService bank = new BankService();
         bank.addUser(user);
         bank.addAccount(user.getPassport(), new Account("5546", 150D));
-        assertThat(bank.findByRequisite("3434", "5546").get().getBalance(), is(150D));
+        assertThat(bank.findByRequisite("3434", "5546").get().getBalance()).isEqualTo(150D);
     }
 
     @Test
@@ -41,6 +41,6 @@ public class BankServiceTest {
         bank.addAccount(user.getPassport(), new Account("5546", 150D));
         bank.addAccount(user.getPassport(), new Account("113", 50D));
         bank.transferMoney(user.getPassport(), "5546", user.getPassport(), "113", 150D);
-        assertThat(bank.findByRequisite(user.getPassport(), "113").get().getBalance(), is(200D));
+        assertThat(bank.findByRequisite(user.getPassport(), "113").get().getBalance()).isEqualTo(200D);
     }
 }

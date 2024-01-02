@@ -1,12 +1,11 @@
 package ru.job4j.collection;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import org.junit.Test;
 
 public class NotifyAccountTest {
 
@@ -22,7 +21,7 @@ public class NotifyAccountTest {
                 new Account("142", "Petr Arsentev", "000001")
             )
         );
-        assertThat(NotifyAccount.sent(accounts), is(expect));
+        assertThat(NotifyAccount.sent(accounts)).isEqualTo(expect);
     }
 
     @Test
@@ -39,6 +38,6 @@ public class NotifyAccountTest {
                 new Account("142", "Petr Arsentev", "000001")
             )
         );
-        assertThat(NotifyAccount.sent(accounts), is(expect));
+        assertThat(NotifyAccount.sent(accounts)).isEqualTo(expect);
     }
 }

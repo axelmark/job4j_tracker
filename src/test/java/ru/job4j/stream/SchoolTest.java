@@ -1,23 +1,23 @@
 package ru.job4j.stream;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
-import org.junit.Test;
 
 public class SchoolTest {
 
     @Test
     public void whenCollectClassA() {
         List<Student> students = List.of(
-            new Student(10, "Surname1"),
-            new Student(40, "Surname4"),
-            new Student(50, "Surname5"),
-            new Student(70, "Surname7"),
-            new Student(90, "Surname9")
+                new Student(10, "Surname1"),
+                new Student(40, "Surname4"),
+                new Student(50, "Surname5"),
+                new Student(70, "Surname7"),
+                new Student(90, "Surname9")
         );
         School sc = new School();
         Predicate<Student> pr = x -> x.getScore() >= 70;
@@ -27,17 +27,17 @@ public class SchoolTest {
         List<Student> expected = new ArrayList<>();
         expected.add(new Student(70, "Surname7"));
         expected.add(new Student(90, "Surname9"));
-        assertThat(rsl, is(expected));
+        assertThat(rsl).isEqualTo(expected);
     }
 
     @Test
     public void whenCollectClassB() {
         List<Student> students = List.of(
-            new Student(20, "Surname2"),
-            new Student(30, "Surname3"),
-            new Student(50, "Surname5"),
-            new Student(60, "Surname6"),
-            new Student(80, "Surname8")
+                new Student(20, "Surname2"),
+                new Student(30, "Surname3"),
+                new Student(50, "Surname5"),
+                new Student(60, "Surname6"),
+                new Student(80, "Surname8")
         );
         School sc = new School();
         Predicate<Student> pr = x -> x.getScore() >= 50;
@@ -47,18 +47,18 @@ public class SchoolTest {
         List<Student> expected = new ArrayList<>();
         expected.add(new Student(50, "Surname5"));
         expected.add(new Student(60, "Surname6"));
-        assertThat(rsl, is(expected));
+        assertThat(rsl).isEqualTo(expected);
 
     }
 
     @Test
     public void whenCollectClassV() {
         List<Student> students = List.of(
-            new Student(10, "Surname1"),
-            new Student(30, "Surname3"),
-            new Student(40, "Surname4"),
-            new Student(60, "Surname6"),
-            new Student(90, "Surname9")
+                new Student(10, "Surname1"),
+                new Student(30, "Surname3"),
+                new Student(40, "Surname4"),
+                new Student(60, "Surname6"),
+                new Student(90, "Surname9")
         );
         School sc = new School();
         Predicate<Student> pr = x -> x.getScore() > 0;
@@ -69,7 +69,6 @@ public class SchoolTest {
         expected.add(new Student(10, "Surname1"));
         expected.add(new Student(30, "Surname3"));
         expected.add(new Student(40, "Surname4"));
-        assertThat(rsl, is(expected));
-
+        assertThat(rsl).isEqualTo(expected);
     }
 }

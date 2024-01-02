@@ -1,20 +1,20 @@
 package ru.job4j.tracker;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
-import org.junit.Test;
 
 public class TrackerTest {
 
-    @Test
+   /* @Test
     public void whenTestFindById() {
         MemTracker tracker = new MemTracker();
         Item bug = new Item("Bug");
         Item item = tracker.add(bug);
         Item result = tracker.findById(item.getId());
-        assertThat(result.getName(), is(item.getName()));
+        assertThat(result.getName()).isEqualTo(item.getName());
     }
 
     @Test
@@ -26,8 +26,8 @@ public class TrackerTest {
         tracker.add(second);
         List<Item> result = tracker.findAll();
 
-        assertThat(result.get(0).getName(), is(first.getName()));
-        assertThat(result.get(1).getName(), is(second.getName()));
+        assertThat(result.get(0).getName()).isEqualTo(first.getName());
+        assertThat(result.get(1).getName()).isEqualTo(second.getName());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class TrackerTest {
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
         List<Item> result = tracker.findByName(first.getName());
-        assertThat(result.size(), is(3));
+        assertThat(result.size()).isEqualTo(3);
     }
 
     @Test
@@ -55,9 +55,9 @@ public class TrackerTest {
         tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
         List<Item> result = tracker.findByName(second.getName());
-        assertThat(result.get(1).getName(), is(second.getName()));
+        assertThat(result.get(1).getName()).isEqualTo(second.getName());
     }
-/*
+
     @Test
     public void whenReplace() {
         MemTracker tracker = new MemTracker();

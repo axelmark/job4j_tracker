@@ -1,9 +1,8 @@
 package ru.job4j.search;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.*;
 
 public class PhoneDictionaryTest {
 
@@ -11,20 +10,20 @@ public class PhoneDictionaryTest {
     public void whenFindByName() {
         var phones = new PhoneDictionary();
         phones.add(
-            new Person("Petr", "Arsentev", "534872", "Bryansk")
+                new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
         var persons = phones.find("Petr");
-        assertThat(persons.get(0).getSurname(), is("Arsentev"));
+        assertThat(persons.get(0).getSurname()).isEqualTo("Arsentev");
     }
 
     @Test
     public void whenNotFind() {
         var phones = new PhoneDictionary();
         phones.add(
-            new Person("Petr", "Arsentev", "534872", "Bryansk")
+                new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
         var persons = phones.find("FInd");
-        assertThat(persons.isEmpty(), is(true));
+        assertThat(persons.isEmpty()).isTrue();
     }
 }
 

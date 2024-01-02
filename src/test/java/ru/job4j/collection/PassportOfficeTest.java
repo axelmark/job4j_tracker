@@ -1,11 +1,7 @@
 package ru.job4j.collection;
 
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertFalse;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.*;
 
 public class PassportOfficeTest {
 
@@ -14,7 +10,7 @@ public class PassportOfficeTest {
         Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
         PassportOffice office = new PassportOffice();
         office.add(citizen);
-        assertThat(office.get(citizen.getPassport()), is(citizen));
+        assertThat(office.get(citizen.getPassport())).isEqualTo(citizen);
     }
 
     @Test
@@ -24,6 +20,6 @@ public class PassportOfficeTest {
         PassportOffice office = new PassportOffice();
         office.add(citizen);
         office.add(citizen2);
-        assertFalse(office.add(citizen2));
+        assertThat(office.add(citizen2)).isFalse();
     }
 }

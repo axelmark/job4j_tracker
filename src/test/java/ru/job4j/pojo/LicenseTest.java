@@ -1,9 +1,6 @@
 package ru.job4j.pojo;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.*;
 
 public class LicenseTest {
 
@@ -13,6 +10,6 @@ public class LicenseTest {
         first.setCode("audio");
         License second = new License();
         second.setCode("audio");
-        assertThat(first, is(second));
+        assertThat(first).isEqualTo(second);
     }
 }

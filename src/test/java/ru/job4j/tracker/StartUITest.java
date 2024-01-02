@@ -1,16 +1,14 @@
-/*
 package ru.job4j.tracker;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
-import org.junit.Test;
 import ru.job4j.tracker.action.*;
 
 public class StartUITest {
 
-    @Test
+   /* @Test
     public void whenCreateItem() {
         Output output = new StubOutput();
         Input in = new StubInput(
@@ -22,7 +20,7 @@ public class StartUITest {
             new Exit(output)
         };
         new StartUI(output).init(in, tracker, List.of(actions));
-        assertThat(tracker.findAll().get(0).getName(), is("Item name"));
+        assertThat(tracker.findAll().get(0).getName()).isEqualTo("Item name");
     }
 
     @Test
@@ -39,7 +37,7 @@ public class StartUITest {
         };
         new StartUI(output).init(in, tracker, List.of(actions));
         String ln = System.lineSeparator();
-        assertThat(output.toString(), is(
+        assertThat(output.toString()).isEqualTo(
             "=== Menu: ===" + ln
                 + "0. Edit item" + ln
                 + "1. Exit" + ln
@@ -49,7 +47,7 @@ public class StartUITest {
                 + "0. Edit item" + ln
                 + "1. Exit" + ln
                 + "=== Exit Program ===" + ln
-        ));
+        );
     }
 
     @Test
@@ -66,7 +64,7 @@ public class StartUITest {
         };
         new StartUI(output).init(in, tracker, List.of(actions));
         String ln = System.lineSeparator();
-        assertThat(output.toString(), is(
+        assertThat(output.toString()).isEqualTo(
             "=== Menu: ===" + ln
                 + "0. Show all items" + ln
                 + "1. Exit" + ln
@@ -76,7 +74,7 @@ public class StartUITest {
                 + "0. Show all items" + ln
                 + "1. Exit" + ln
                 + "=== Exit Program ===" + ln
-        ));
+        );
     }
 
     @Test
@@ -93,7 +91,7 @@ public class StartUITest {
         };
         new StartUI(output).init(in, tracker, List.of(actions));
         String ln = System.lineSeparator();
-        assertThat(output.toString(), is(
+        assertThat(output.toString()).isEqualTo(
             "=== Menu: ===" + ln
                 + "0. Find by name" + ln
                 + "1. Exit" + ln
@@ -103,7 +101,7 @@ public class StartUITest {
                 + "0. Find by name" + ln
                 + "1. Exit" + ln
                 + "=== Exit Program ===" + ln
-        ));
+        );
     }
 
     @Test
@@ -120,7 +118,7 @@ public class StartUITest {
         };
         new StartUI(output).init(in, tracker, List.of(actions));
         String ln = System.lineSeparator();
-        assertThat(output.toString(), is(
+        assertThat(output.toString()).isEqualTo(
             "=== Menu: ===" + ln
                 + "0. Find by id" + ln
                 + "1. Exit" + ln
@@ -130,7 +128,7 @@ public class StartUITest {
                 + "0. Find by id" + ln
                 + "1. Exit" + ln
                 + "=== Exit Program ===" + ln
-        ));
+        );
     }
 
     @Test
@@ -147,7 +145,7 @@ public class StartUITest {
         };
         new StartUI(output).init(in, tracker, List.of(actions));
         String ln = System.lineSeparator();
-        assertThat(output.toString(), is(
+        assertThat(output.toString()).isEqualTo(
             "=== Menu: ===" + ln
                 + "0. Delete item" + ln
                 + "1. Exit" + ln
@@ -157,6 +155,6 @@ public class StartUITest {
                 + "0. Delete item" + ln
                 + "1. Exit" + ln
                 + "=== Exit Program ===" + ln
-        ));
-    }
-}*/
+        );
+    }*/
+}
