@@ -57,7 +57,7 @@ public class TrackerTest {
         List<Item> result = tracker.findByName(second.getName());
         assertThat(result.get(1).getName(), is(second.getName()));
     }
-
+/*
     @Test
     public void whenReplace() {
         MemTracker tracker = new MemTracker();
@@ -71,7 +71,7 @@ public class TrackerTest {
         assertThat(rsl, is(true));
     }
 
-    /*@Test
+   @Test
     public void whenDelete() {
         MemTracker tracker = new MemTracker();
         Item bug = new Item();

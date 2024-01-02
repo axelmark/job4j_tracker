@@ -2,6 +2,7 @@ package ru.job4j.tracker;
 
 import java.io.InputStream;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -19,10 +20,12 @@ public class SqlTracker implements Store {
 
     @Override
     public Item add(Item item) {
+        Timestamp date = Timestamp.valueOf(LocalDateTime.now().withNano(0));
+        item.setCreated(date.toLocalDateTime());
         try (PreparedStatement statement =
                      connection.prepareStatement("INSERT INTO items(name, created) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, item.getName());
-            statement.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
+            statement.setTimestamp(2, date);
             statement.execute();
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
@@ -39,9 +42,10 @@ public class SqlTracker implements Store {
     @Override
     public boolean replace(int id, Item item) {
         boolean result = false;
-        try (PreparedStatement statement = connection.prepareStatement("UPDATE items SET name=(?) WHERE id=(?);")) {
+        try (PreparedStatement statement = connection.prepareStatement("UPDATE items SET name=(?), created=(?) WHERE id=(?);")) {
             statement.setString(1, item.getName());
-            statement.setInt(2, id);
+            statement.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
+            statement.setInt(3, id);
             result = statement.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,7 +70,7 @@ public class SqlTracker implements Store {
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    item = new Item(resultSet.getInt("id"), resultSet.getString("name"));
+                    item = new Item(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getTimestamp("created"));
                 }
             }
         } catch (Exception e) {
@@ -84,7 +88,8 @@ public class SqlTracker implements Store {
                 while (resultSet.next()) {
                     allItems.add(new Item(
                             resultSet.getInt("id"),
-                            resultSet.getString("name")
+                            resultSet.getString("name"),
+                            resultSet.getTimestamp("created")
                     ));
                 }
             }
@@ -102,7 +107,8 @@ public class SqlTracker implements Store {
                 while (resultSet.next()) {
                     allItems.add(new Item(
                             resultSet.getInt("id"),
-                            resultSet.getString("name")
+                            resultSet.getString("name"),
+                            resultSet.getTimestamp("created")
                     ));
                 }
             }
@@ -123,7 +129,7 @@ public class SqlTracker implements Store {
         try (InputStream in = SqlTracker.class.getClassLoader().getResourceAsStream("db/liquibase.properties")) {
             Properties config = new Properties();
             config.load(in);
-            Class.forName(config.getProperty("driver-class-name"));
+            Class.forName(config.getProperty("driver"));
             connection = DriverManager.getConnection(
                     config.getProperty("url"),
                     config.getProperty("username"),

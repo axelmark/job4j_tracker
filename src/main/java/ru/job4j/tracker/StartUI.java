@@ -39,7 +39,9 @@ public class StartUI {
         Input input = new ValidateInput(
                 output, new ConsoleInput()
         );
-        try (MemTracker tracker = new MemTracker()) {
+
+        try (Store tracker = new SqlTracker()) {
+            /* try (MemTracker tracker = new MemTracker()) {*/
             List<UserAction> actions = List.of(
                     new Create(output),
                     new Replace(output),

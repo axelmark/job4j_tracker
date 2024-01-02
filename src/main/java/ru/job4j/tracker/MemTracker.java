@@ -30,7 +30,7 @@ public class MemTracker implements Store {
     }
 
     public List<Item> findAll() {
-        return List.copyOf(items);
+        return items;
     }
 
     private int indexOf(int id) {
