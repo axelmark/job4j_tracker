@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.store;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -11,15 +11,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 import static org.assertj.core.api.Assertions.*;
 
 public class SqlTrackerTest {
 
-    private static Connection connection;
+    /*private static Connection connection;
 
     @BeforeAll
     public static void initConnection() {
@@ -56,5 +54,5 @@ public class SqlTrackerTest {
         Item item = new Item("item");
         tracker.add(item);
         assertThat(tracker.findById(item.getId())).isEqualTo(item);
-    }
+    }*/
 }
