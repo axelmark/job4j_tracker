@@ -11,11 +11,12 @@ public class College {
         student.setGroup(223);
         student.setReceipt(new Date("2008/8/1"));
         System.out
-            .print((
-                "Firstname: " + student.getFirstname() + System.lineSeparator()
-                    + "Lastname: " + student.getLastname() + System.lineSeparator()
-                    + "Group: " + student.getGroup() + System.lineSeparator()
-                    + "Receipt date: " + student.getReceipt()
-            ));
+                .print((
+                        "Firstname: "
+                                + student.getFirstname() + System.lineSeparator()
+                                + "Lastname: " + student.getLastname() + System.lineSeparator()
+                                + "Group: " + student.getGroup() + System.lineSeparator()
+                                + "Receipt date: " + student.getReceipt()
+                ));
     }
 }

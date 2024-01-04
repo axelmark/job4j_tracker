@@ -8,7 +8,7 @@ import java.util.List;
 
 public class TrackerTest {
 
-   /* @Test
+    @Test
     public void whenTestFindById() {
         MemTracker tracker = new MemTracker();
         Item bug = new Item("Bug");
@@ -68,10 +68,10 @@ public class TrackerTest {
         Item bugWithDesc = new Item();
         bugWithDesc.setName("Bug with description");
         boolean rsl = tracker.replace(id, bugWithDesc);
-        assertThat(rsl, is(true));
+        assertThat(rsl).isTrue();
     }
 
-   @Test
+  /* @Test
     public void whenDelete() {
         MemTracker tracker = new MemTracker();
         Item bug = new Item();
@@ -79,7 +79,7 @@ public class TrackerTest {
         tracker.add(bug);
         int id = bug.getId();
         boolean rsl = tracker.delete(id);
-        assertThat(rsl, is(true));
+        assertThat(rsl).isTrue();
     }
 
     @Test
@@ -93,6 +93,6 @@ public class TrackerTest {
         tracker.add(second);
         int id = second.getId();
         boolean rsl = tracker.delete(id);
-        assertThat(rsl, is(true));
+        assertThat(rsl).isTrue();
     }*/
 }

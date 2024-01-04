@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 
 public class ValidateInputTest {
-   /* @Test
+    @Test
     public void whendValidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
@@ -40,5 +40,5 @@ public class ValidateInputTest {
         ValidateInput input = new ValidateInput(out, in);
         int selected = in.askInt("Enter menu:");
         assertThat(selected).isEqualTo(-1);
-    }*/
+    }
 }

@@ -16,6 +16,9 @@ public class Item implements Comparable<Item> {
         this.name = name;
     }
 
+    public Item() {
+    }
+
     public Item(int id, String name) {
         this.id = id;
         this.name = name;
