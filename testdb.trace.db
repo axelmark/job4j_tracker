@@ -1,0 +1,66 @@
+2024-01-05 21:06:40.664762+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+INSERT INTO items(name, created) VALUES (?, ?) [42104-222]
+2024-01-05 21:06:40.675229+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+SELECT * FROM items WHERE id=(?) [42104-222]
+2024-01-05 21:06:40.770728+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+delete from items [42104-222]
+2024-01-05 21:23:51.962232+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+INSERT INTO items(name, created) VALUES (?, ?) [42104-222]
+2024-01-05 21:23:51.974025+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+SELECT * FROM items WHERE id=(?) [42104-222]
+2024-01-05 21:23:52.055373+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+delete from items [42104-222]
+2024-01-05 21:56:08.640704+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+INSERT INTO items(name, created) VALUES (?, ?) [42104-222]
+2024-01-05 21:56:08.657743+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+SELECT * FROM items WHERE id=(?) [42104-222]
+2024-01-05 21:56:08.747406+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+delete from items [42104-222]
+2024-01-05 21:56:25.174202+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+INSERT INTO items(name, created) VALUES (?, ?) [42104-222]
+2024-01-05 21:56:25.191825+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+SELECT * FROM items WHERE id=(?) [42104-222]
+2024-01-05 21:56:25.294221+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+delete from items [42104-222]
+2024-01-06 12:31:53.051501+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+INSERT INTO items(name, created) VALUES (?, ?) [42104-222]
+2024-01-06 12:31:53.061383+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+SELECT * FROM items WHERE id=(?) [42104-222]
+2024-01-06 12:31:53.161158+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+delete from items [42104-222]
+2024-01-06 12:34:18.457165+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+INSERT INTO items(name, created) VALUES (?, ?) [42104-222]
+2024-01-06 12:34:18.470265+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+SELECT * FROM items WHERE id=(?) [42104-222]
+2024-01-06 12:34:18.611635+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+delete from items [42104-222]
+2024-01-06 12:34:59.296658+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+INSERT INTO items(name, created) VALUES (?, ?) [42104-222]
+2024-01-06 12:34:59.307564+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+SELECT * FROM items WHERE id=(?) [42104-222]
+2024-01-06 12:34:59.419744+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEMS" not found (this database is empty); SQL statement:
+delete from items [42104-222]
+2024-01-06 12:41:42.054626+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found (this database is empty); SQL statement:
+SELECT COUNT(*) FROM DATABASECHANGELOGLOCK [42104-222]
